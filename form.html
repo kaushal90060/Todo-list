@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Popup form</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@300&family=Karla:wght@200&family=Roboto+Slab:wght@300;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="box1">
+        <form class="inputbody" id="task-form">
+            <input type="text" class="maininput" name="maininput" placeholder="Tell what you want to do?.......">
+            <button class="addtask" id="submit-task">Add Task</button>
+        </form>
+
+    </div> 
+    <div class="popup">
+        <div class="modal">
+            <div class="diag">Put some details here</div>
+            <form class="modalform">
+                <input type="text" class="name" placeholder="Enter your task name"><br>
+                <label for="time">Expected Time to complete?</label><br>
+                <input type="text" class="timeline"/><br>
+                <label for="date">Expected Date to complete?</label><br>
+                <input type="date" class="deadline"/><br>
+                <input type="text" class="location" placeholder="Enter your location" /><br>
+                <input type="checkbox" class="will">
+                <label for="will">Willing to complete?</label><br>
+                <input type="submit" class="submitbox">
+            </form>
+        </div>
+    </div>
+    <script>
+
+        const button = document.querySelector('.addtask');
+             
+            let modal;
+            let backdrop;
+
+            button.addEventListener('click',showModal);
+            function showModal(e){
+                
+                e.preventDefault();
+                console.log("Clicked add task");
+                if(modal) return;
+                //Create modal class div
+                modal = document.createElement('div');
+                modal.className = 'modal';
+        
+                const modalText = document.createElement('p');
+                modalText.textContent = "This is a modal window";
+
+            modal.append(modalText);
+            document.body.append(modal);
+   
+ 
+         }
+
+    </script>
+</body>
+</html>
