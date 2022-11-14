@@ -1,26 +1,11 @@
 "use script";
 // const outputbox =document.querySelector('.outputbox');
 //Month array for date comparison
-const month = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
-const changeImage = document.querySelector('.refreshImg');
-changeImage.addEventListener('click',showImage);
-function getrandromNum(min,max){
-    min = Math.ceil(min);
-    max = Math.floor(max);
-    return Math.floor(Math.random() * (max - min + 1)) + min;
-}
-function showImage(){
-    const image = document.querySelector('.img');
-    const height = getrandromNum(550,600);
-    const width = getrandromNum(275,350);
-    const url = `https://source.unsplash.com/random/${width}x${height}`;
-    console.log(`Height : ${height} Width : ${width}`);
-    
-    image.src = url;
-}
+// const month = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
 
 window.addEventListener('load',() =>{
     showImage();
+
   const input = document.querySelector('.maininput');
   const output = document.querySelector('.outputbox');
     let modal;
@@ -80,12 +65,6 @@ window.addEventListener('load',() =>{
         deadline.setAttribute("type","date");
         deadline.classList.add('deadline');
 
-        //Input for location
-        const location = document.createElement('input');
-        location.setAttribute("type","text");
-        location.setAttribute("placeholder","Enter your location");
-        location.classList.add('location');
-
         //Input for willing to do something checkbox
         const will = document.createElement('input');
         will.setAttribute("type","checkbox");
@@ -118,8 +97,6 @@ window.addEventListener('load',() =>{
         form.appendChild(dateLabel);
         form.appendChild(br.cloneNode());
         form.appendChild(deadline);
-        form.appendChild(br.cloneNode());
-        form.appendChild(location);
         form.appendChild(br.cloneNode());
         form.appendChild(will);
         form.appendChild(willLabel);
@@ -155,10 +132,9 @@ window.addEventListener('load',() =>{
           const tName = name.value;
           const tTime = timeline.value;
           const tDate = deadline.value;
-          const tLoc = location.value;
           const tWill = will.value;
 
-          console.log(`Name : ${tName} \n Date : ${tTime}\n Location : ${tLoc} \n Will : ${tWill}`);
+          console.log(`Name : ${tName} \n Date : ${tTime}\n Will : ${tWill}`);
           
           //Now add card and the contents of the modal window
           const card = document.createElement('div');
@@ -202,18 +178,13 @@ window.addEventListener('load',() =>{
           p4.innerHTML = `Status : ${flag}`;
           p4.classList.add('para','p4');
             
-          const p5 = document.createElement('p');
-          p5.innerHTML = `Location : ${tLoc}`;
-          p5.classList.add('para','p5');
-            
           //Append all the paragraphs into the details divbox
           details.appendChild(p1);
           details.appendChild(p2);
           details.appendChild(p3);
           details.appendChild(px);
           details.appendChild(p4);
-          details.appendChild(p5);
-           
+  
           //append details to card
           card.appendChild(details);
 
@@ -265,3 +236,22 @@ function formatAMPM(date) {
   var strTime = hours + ':' + minutes + ' ' + ampm;
   return strTime;
 }
+
+const changeImage = document.querySelector('.refreshImg');
+changeImage.addEventListener('click',showImage);
+function getrandromNum(min,max){
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+function showImage(){
+    const image = document.querySelector('.img');
+    const height = getrandromNum(550,600);
+    const width = getrandromNum(275,350);
+    const url = `https://source.unsplash.com/random/${width}x${height}`;
+    console.log(`Height : ${height} Width : ${width}`);
+    
+    image.src = url;
+}
+
+   
