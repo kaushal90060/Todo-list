@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restcountries APi</title>
+</head>
+<body>
+    <div class="coords">Lat : lat  Long : longitude</div>
+    <div class="country">This is India</div>
+    <div class="city">You are at Kolkata</div>
+  <script>
+  const cords = document.querySelector('.coords');
+  const country = document.querySelector('.country');
+  const city = document.querySelector('.city');
+function getCurrentLocation(){
+    if(navigator.geolocation){
+        navigator.geolocation.getCurrentPosition((position)=>{
+            const {latitude} = position.coords;
+            const {longitude} = position.coords;
+            cords.innerHTML = `Latitude : ${latitude} Longitude : ${longitude}`;
+            fetch(`https://geocode.xyz/${latitude},${longitude}?geoit=json`).then((response)=>{
+        if(!response.ok) throw new Error('Problem with the geocoding');
+        return response.json();
+        }).then((data) =>{
+        country.innerHTML = data.country;
+        city.innerHTML = data.city;
+        }).catch((err)=>{
+        console.log(err.message);
+        }).finally(()=>{
+        console.log('DOne');
+       });
+        },()=>{
+            alert('Please allow the location');
+        });
+    }
+  }
+  window.addEventListener('load',getCurrentLocation);
+
+  
+  </script>
+</body>
+</html>

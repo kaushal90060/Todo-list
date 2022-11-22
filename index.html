@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Todolist</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@300&family=Karla:wght@200&family=Roboto+Slab:wght@300;500&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <div class="header">My ToDo list</div>
+    <div class="main">
+        <!-- box1 for to do list -->
+        <div class="box1">
+            <form class="inputbody" id="task-form">
+                <input type="text" class="maininput" name="maininput" placeholder="Tell what you want to do?.......">
+                <input type="submit" class="addtask" id="submit-task">
+                <!-- <button class="addtask" id="submit-task">Add Task</button> -->
+            </form>
+            <hr>
+            <div class="outputbox">
+                <!-- This box will published through javascript  -->
+                <!-- <div class="card">
+                    <h2 class="taskh">Todo : Task name</h2>
+                    <div class="details">
+                        <p class="para p1">Time : 12:30 PM</p>
+                        <p class="para p2">Date : 18/11/2022</p>
+                        <p class="para p3">Expected time to complete : 12/12/2022</p>
+                        <p class="para p4">Staus : Yet to complete</p>
+                        <p class="para p5">Location : Kolkata</p>
+                    </div>
+                    <div class="action">
+                      <button class="button complete">Mark as completed</button>
+                      <button class="button delet">Delete</button>
+                    </div>  
+                </div> -->
+                
+            </div>
+        </div>
+
+        <!-- box2 for random image generation -->
+        <div class="box2">
+            <div class="lost">
+                <img class="loss" src="no-connection.gif" alt="">
+            </div>
+            <div class="loader" id="load">
+                <script src="https://cdn.lordicon.com/qjzruarw.js"></script>
+                <lord-icon
+                    src="https://cdn.lordicon.com/ulhdumaq.json"
+                    trigger="loop"
+                    colors="primary:#d4d1fa,secondary:#d1faf0"
+                    style="width:250px;height:250px">
+                </lord-icon>
+                <!-- <div class="lds-ripple"><div></div><div></div></div> -->
+            </div>
+            <img class="img" loading="lazy" alt="Nothing to show">
+            <button class="refreshImg">
+               Change image
+            </button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+
+</body>
+</html>
